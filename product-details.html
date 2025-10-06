@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details - GreenLife Agro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+   <!-- Js path  -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</head>
+<body>
+
+  <!-- 🌿 Header -->
+  <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-success" href="index.html">GreenLife Agro</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- 🌱 Product Hero -->
+  <section class="bg-light py-5 text-center">
+    <div class="container">
+      <h1 class="fw-bold text-success">Organic Fertilizer A</h1>
+      <p>Premium soil-enriching fertilizer for sustainable crop growth.</p>
+    </div>
+  </section>
+
+  <!-- 🧪 Product Details -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Image -->
+        <div class="col-md-5">
+          <img src="assets/images/product1.jpg" class="img-fluid rounded shadow-sm" alt="Organic Fertilizer A">
+        </div>
+
+        <!-- Details -->
+        <div class="col-md-7">
+          <h2>Product Overview</h2>
+          <p>
+            Organic Fertilizer A is a 100% natural blend designed to boost soil fertility, 
+            improve crop yield, and promote healthy root development without harmful chemicals.
+          </p>
+
+          <ul class="list-group mb-3">
+            <li class="list-group-item"><strong>Type:</strong> Organic</li>
+            <li class="list-group-item"><strong>Usage:</strong> All Crops</li>
+            <li class="list-group-item"><strong>Nutrients:</strong> NPK 5-5-5</li>
+            <li class="list-group-item"><strong>Packaging:</strong> 25 kg / 50 kg</li>
+            <li class="list-group-item"><strong>Application:</strong> Mix with soil before sowing or top-dress during growth.</li>
+          </ul>
+
+          <div class="d-flex gap-3">
+            <a href="contact.html" class="btn btn-success btn-lg">Enquire Now</a>
+            <a href="products.html" class="btn btn-outline-success btn-lg">Back to Products</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📋 Description Tabs -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <ul class="nav nav-tabs" id="productTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab">Description</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="spec-tab" data-bs-toggle="tab" data-bs-target="#spec" type="button" role="tab">Specifications</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="usage-tab" data-bs-toggle="tab" data-bs-target="#usage" type="button" role="tab">Usage Guide</button>
+        </li>
+      </ul>
+      <div class="tab-content py-4">
+        <div class="tab-pane fade show active" id="desc" role="tabpanel">
+          <p>
+            Organic Fertilizer A improves soil structure and supports beneficial microorganisms. 
+            It's environmentally friendly and enhances nutrient availability over time.
+          </p>
+        </div>
+        <div class="tab-pane fade" id="spec" role="tabpanel">
+          <ul>
+            <li>Nitrogen: 5%</li>
+            <li>Phosphorus: 5%</li>
+            <li>Potassium: 5%</li>
+            <li>Moisture content: 10%</li>
+            <li>pH level: 6.5 – 7.0</li>
+          </ul>
+        </div>
+        <div class="tab-pane fade" id="usage" role="tabpanel">
+          <p>
+            Apply 25–50 kg per acre depending on soil condition. Mix well with the topsoil during 
+            field preparation or apply as top dressing after 30–40 days of sowing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📞 Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+      <p>&copy; 2025 GreenLife Agro. All Rights Reserved.</p>
+      <div>
+        <a href="#" class="text-white me-3">Facebook</a>
+        <a href="#" class="text-white me-3">Instagram</a>
+        <a href="#" class="text-white">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
