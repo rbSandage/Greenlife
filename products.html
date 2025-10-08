@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Products - GreenLife Agro</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-   <!-- Js path  -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  
 </head>
 <body>
-
   <!-- 🌿 Header -->
   <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
@@ -23,8 +18,8 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -32,7 +27,6 @@
       </div>
     </div>
   </header>
-
 
   <!-- 🧭 Page Hero -->
   <section class="bg-light py-5 text-center">
@@ -42,88 +36,97 @@
     </div>
   </section>
 
-  <!-- 🧪 Filter + Product Grid -->
+  <!-- 🧪 Sidebar + Product Grid -->
   <section class="py-5">
     <div class="container">
-      <!-- Filters -->
-      <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
-        <button class="btn btn-outline-success active" data-filter="all">All</button>
-        <button class="btn btn-outline-success" data-filter="organic">Organic</button>
-        <button class="btn btn-outline-success" data-filter="nitrogen">Nitrogen</button>
-        <button class="btn btn-outline-success" data-filter="protection">Protection</button>
-      </div>
-
-      <!-- Product Cards -->
-      <div class="row g-4" id="productGrid">
-        <!-- Product 1 -->
-        <div class="col-md-4 product-card" data-category="organic">
-          <div class="card shadow-sm">
-            <img src="assets/images/product1.jpg" class="card-img-top" alt="Organic Fertilizer A">
-            <div class="card-body">
-              <h5 class="card-title">Organic Fertilizer A</h5>
-              <p class="card-text">Ideal for improving soil health and yield.</p>
-              <a href="product-details.html" class="btn btn-outline-success">View Details</a>
-            </div>
+      <div class="row">
+        <!-- Sidebar Categories -->
+        <div class="col-lg-3 mb-4">
+          <div class="sidebar">
+            <h4>Categories</h4>
+            <ul id="categoryList">
+              <li class="active" data-filter="all">All Products</li>
+              <li data-filter="organic">Organic</li>
+              <li data-filter="nitrogen">Nitrogen</li>
+              <li data-filter="protection">Protection</li>
+            </ul>
           </div>
         </div>
 
-        <!-- Product 2 -->
-        <div class="col-md-4 product-card" data-category="nitrogen">
-          <div class="card shadow-sm">
-            <img src="assets/images/product1.jpg" class="card-img-top" alt="Nitrogen Boost">
-            <div class="card-body">
-              <h5 class="card-title">Nitrogen Boost</h5>
-              <p class="card-text">High nitrogen content for rapid plant growth.</p>
-              <a href="product-details.html" class="btn btn-outline-success">View Details</a>
+        <!-- Product Cards -->
+        <div class="col-lg-9">
+          <div class="row g-4" id="productGrid">
+            <!-- Example Product Card -->
+            <div class="col-md-4 product-card" data-category="organic">
+              <div class="card shadow-sm">
+                <span class="badge-custom">New</span>
+                <img src="assets/images/product1.jpg" class="card-img-top" alt="Organic Fertilizer A">
+                <div class="card-body">
+                  <h5 class="card-title">Organic Fertilizer A</h5>
+                  <p class="card-text">Ideal for improving soil health and yield.</p>
+                  <a href="product-details.html" class="btn btn-outline-success">View Details</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Product 3 -->
-        <div class="col-md-4 product-card" data-category="protection">
-          <div class="card shadow-sm">
-            <img src="assets/images/product1.jpg" class="card-img-top" alt="Crop Shield">
-            <div class="card-body">
-              <h5 class="card-title">Crop Shield</h5>
-              <p class="card-text">Eco-friendly pest protection for various crops.</p>
-              <a href="product-details.html" class="btn btn-outline-success">View Details</a>
+            <div class="col-md-4 product-card" data-category="nitrogen">
+              <div class="card shadow-sm">
+                <span class="badge-custom" style="background-color:#4caf50;">Hot</span>
+                <img src="assets/images/product1.jpg" class="card-img-top" alt="Nitrogen Boost">
+                <div class="card-body">
+                  <h5 class="card-title">Nitrogen Boost</h5>
+                  <p class="card-text">High nitrogen content for rapid plant growth.</p>
+                  <a href="product-details.html" class="btn btn-outline-success">View Details</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Product 4 -->
-        <div class="col-md-4 product-card" data-category="organic">
-          <div class="card shadow-sm">
-            <img src="assets/images/product1.jpg" class="card-img-top" alt="Green Growth Mix">
-            <div class="card-body">
-              <h5 class="card-title">Green Growth Mix</h5>
-              <p class="card-text">Balanced organic nutrients for healthier soil.</p>
-              <a href="product-details.html" class="btn btn-outline-success">View Details</a>
+            <div class="col-md-4 product-card" data-category="protection">
+              <div class="card shadow-sm">
+                <img src="assets/images/product1.jpg" class="card-img-top" alt="Crop Shield">
+                <div class="card-body">
+                  <h5 class="card-title">Crop Shield</h5>
+                  <p class="card-text">Eco-friendly pest protection for various crops.</p>
+                  <a href="product-details.html" class="btn btn-outline-success">View Details</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+            
+            <div class="col-md-4 product-card" data-category="protection">
+              <div class="card shadow-sm">
+                <img src="assets/images/product1.jpg" class="card-img-top" alt="Crop Shield">
+                <div class="card-body">
+                  <h5 class="card-title">Crop Shield</h5>
+                  <p class="card-text">Eco-friendly pest protection for various crops.</p>
+                  <a href="product-details.html" class="btn btn-outline-success">View Details</a>
+                </div>
+              </div>
+            </div>
 
-        <!-- Product 5 -->
-        <div class="col-md-4 product-card" data-category="nitrogen">
-          <div class="card shadow-sm">
-            <img src="assets/images/product1.jpg" class="card-img-top" alt="RapidGrow N20">
-            <div class="card-body">
-              <h5 class="card-title">RapidGrow N20</h5>
-              <p class="card-text">Boosts leaf and stem development fast.</p>
-              <a href="product-details.html" class="btn btn-outline-success">View Details</a>
+            
+            <div class="col-md-4 product-card" data-category="protection">
+              <div class="card shadow-sm">
+                <img src="assets/images/product1.jpg" class="card-img-top" alt="Crop Shield">
+                <div class="card-body">
+                  <h5 class="card-title">Crop Shield</h5>
+                  <p class="card-text">Eco-friendly pest protection for various crops.</p>
+                  <a href="product-details.html" class="btn btn-outline-success">View Details</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+            
+            <div class="col-md-4 product-card" data-category="protection">
+              <div class="card shadow-sm">
+                <img src="assets/images/product1.jpg" class="card-img-top" alt="Crop Shield">
+                <div class="card-body">
+                  <h5 class="card-title">Crop Shield</h5>
+                  <p class="card-text">Eco-friendly pest protection for various crops.</p>
+                  <a href="product-details.html" class="btn btn-outline-success">View Details</a>
+                </div>
+              </div>
+            </div>
 
-        <!-- Product 6 -->
-        <div class="col-md-4 product-card" data-category="protection">
-          <div class="card shadow-sm">
-            <img src="assets/images/product1.jpg" class="card-img-top" alt="PestGuard Plus">
-            <div class="card-body">
-              <h5 class="card-title">PestGuard Plus</h5>
-              <p class="card-text">Safe and effective pest repellent for crops.</p>
-              <a href="product-details.html" class="btn btn-outline-success">View Details</a>
-            </div>
+            <!-- Add more product cards as needed -->
           </div>
         </div>
       </div>
@@ -144,17 +147,16 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // 🧠 Simple product filter
-    const filterButtons = document.querySelectorAll('[data-filter]');
+    // 🧠 Sidebar product filter
+    const categoryItems = document.querySelectorAll('#categoryList li');
     const productCards = document.querySelectorAll('.product-card');
 
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Toggle active button
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+    categoryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        categoryItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
 
-        const filter = button.getAttribute('data-filter');
+        const filter = item.getAttribute('data-filter');
         productCards.forEach(card => {
           card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none';
         });
