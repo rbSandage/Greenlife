@@ -6,6 +6,7 @@
   <title>Categories - GreenLife Agro</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/categories.css">
    <!-- Js path  -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="assets/js/main.js"></script>
@@ -31,87 +32,185 @@
     </div>
   </header>
 
-  <!-- 🧭 Page Hero -->
-  <section class="bg-light py-5 text-center">
-    <div class="container">
-      <h1 class="fw-bold text-success">Browse by Category</h1>
-      <p>Find the perfect fertilizer for your crop or soil type.</p>
+  <!-- 🧭 Modern Hero Section -->
+  <section class="hero-categories position-relative overflow-hidden py-5">
+    <div class="container position-relative" style="z-index: 2;">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8">
+          <span class="badge bg-success px-3 py-2 mb-3 fade-in">Explore Our Categories</span>
+          <h1 class="display-4 fw-bold text-success mb-3 fade-in">Agricultural Solutions</h1>
+          <p class="lead text-dark-50 mb-4 fade-in">Discover our comprehensive range of agricultural products carefully categorized for your farming needs</p>
+          <div class="category-stats d-flex justify-content-center gap-4 fade-in">
+            <div class="stat-item">
+              <h3 class="fw-bold text-success">6+</h3>
+              <p class="text-muted">Categories</p>
+            </div>
+            <div class="stat-item">
+              <h3 class="fw-bold text-success">50+</h3>
+              <p class="text-muted">Products</p>
+            </div>
+            <div class="stat-item">
+              <h3 class="fw-bold text-success">100%</h3>
+              <p class="text-muted">Quality</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="hero-bg-pattern"></div>
   </section>
 
-  <!-- 🗂️ Category Cards -->
-  <section class="py-5">
+  <!-- 🗂️ Modern Category Cards -->
+  <section class="categories-section py-5">
     <div class="container">
-      <div class="row g-4">
+      <div class="row g-4 justify-content-center">
 
         <!-- Category 1 -->
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100 category-card">
-            <img src="assets/images/product4.jpg" class="card-img-top" alt="Organic Fertilizers">
-            <div class="card-body text-center">
-              <h5 class="card-title fw-bold">Organic Fertilizers</h5>
-              <p class="card-text">Eco-friendly solutions for sustainable farming.</p>
-              <a href="products.html#organic" class="btn btn-outline-success">Explore</a>
+        <div class="col-lg-4 col-md-6">
+          <div class="modern-category-card">
+            <div class="category-image">
+              <img src="assets/images/product4.jpg" alt="Organic Fertilizers">
+              <div class="category-overlay">
+                <div class="overlay-content">
+                  <span class="category-badge">Featured</span>
+                  <h3 class="category-title">Organic Fertilizers</h3>
+                  <p class="category-description">Eco-friendly solutions for sustainable farming that enhance soil health naturally.</p>
+                  <a href="products.html#organic" class="btn btn-light btn-hover-success">Explore Products</a>
+                </div>
+              </div>
+            </div>
+            <div class="category-info">
+              <div class="info-content">
+                <span class="category-icon">🌱</span>
+                <h4>Organic Fertilizers</h4>
+                <p>20+ Products</p>
+              </div>
+              <div class="hover-indicator"></div>
             </div>
           </div>
         </div>
 
         <!-- Category 2 -->
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100 category-card">
-            <img src="assets/images/product4.jpg" class="card-img-top" alt="Nitrogen Fertilizers">
-            <div class="card-body text-center">
-              <h5 class="card-title fw-bold">Nitrogen Fertilizers</h5>
-              <p class="card-text">For faster vegetative growth and higher yields.</p>
-              <a href="products.html#nitrogen" class="btn btn-outline-success">Explore</a>
+        <div class="col-lg-4 col-md-6">
+          <div class="modern-category-card">
+            <div class="category-image">
+              <img src="assets/images/product4.jpg" alt="Nitrogen Fertilizers">
+              <div class="category-overlay">
+                <div class="overlay-content">
+                  <span class="category-badge">Popular</span>
+                  <h3 class="category-title">Nitrogen Fertilizers</h3>
+                  <p class="category-description">High-performance solutions for maximum crop yield and growth.</p>
+                  <a href="products.html#nitrogen" class="btn btn-light btn-hover-success">Explore Products</a>
+                </div>
+              </div>
+            </div>
+            <div class="category-info">
+              <div class="info-content">
+                <span class="category-icon">🌿</span>
+                <h4>Nitrogen Fertilizers</h4>
+                <p>15+ Products</p>
+              </div>
+              <div class="hover-indicator"></div>
             </div>
           </div>
         </div>
 
         <!-- Category 3 -->
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100 category-card">
-            <img src="assets/images/product4.jpg" class="card-img-top" alt="Crop Protection">
-            <div class="card-body text-center">
-              <h5 class="card-title fw-bold">Crop Protection</h5>
-              <p class="card-text">Defend your crops from pests the natural way.</p>
-              <a href="products.html#protection" class="btn btn-outline-success">Explore</a>
+        <div class="col-lg-4 col-md-6">
+          <div class="modern-category-card">
+            <div class="category-image">
+              <img src="assets/images/product4.jpg" alt="Crop Protection">
+              <div class="category-overlay">
+                <div class="overlay-content">
+                  <span class="category-badge">Essential</span>
+                  <h3 class="category-title">Crop Protection</h3>
+                  <p class="category-description">Advanced solutions for protecting your valuable crops naturally.</p>
+                  <a href="products.html#protection" class="btn btn-light btn-hover-success">Explore Products</a>
+                </div>
+              </div>
+            </div>
+            <div class="category-info">
+              <div class="info-content">
+                <span class="category-icon">🛡️</span>
+                <h4>Crop Protection</h4>
+                <p>12+ Products</p>
+              </div>
+              <div class="hover-indicator"></div>
             </div>
           </div>
         </div>
 
         <!-- Category 4 -->
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100 category-card">
-            <img src="assets/images/product4.jpg" class="card-img-top" alt="Fruits & Vegetables">
-            <div class="card-body text-center">
-              <h5 class="card-title fw-bold">Fruits & Vegetables</h5>
-              <p class="card-text">Fertilizers tailored for fruit & vegetable crops.</p>
-              <a href="products.html" class="btn btn-outline-success">Explore</a>
+        <div class="col-lg-4 col-md-6">
+          <div class="modern-category-card">
+            <div class="category-image">
+              <img src="assets/images/product4.jpg" alt="Fruits & Vegetables">
+              <div class="category-overlay">
+                <div class="overlay-content">
+                  <span class="category-badge">Specialized</span>
+                  <h3 class="category-title">Fruits & Vegetables</h3>
+                  <p class="category-description">Premium fertilizers designed specifically for fruits and vegetables.</p>
+                  <a href="products.html#fruits" class="btn btn-light btn-hover-success">Explore Products</a>
+                </div>
+              </div>
+            </div>
+            <div class="category-info">
+              <div class="info-content">
+                <span class="category-icon">🍎</span>
+                <h4>Fruits & Vegetables</h4>
+                <p>18+ Products</p>
+              </div>
+              <div class="hover-indicator"></div>
             </div>
           </div>
         </div>
 
         <!-- Category 5 -->
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100 category-card">
-            <img src="assets/images/product4.jpg" class="card-img-top" alt="Cereals & Grains">
-            <div class="card-body text-center">
-              <h5 class="card-title fw-bold">Cereals & Grains</h5>
-              <p class="card-text">Boost your wheat, rice, and maize yield effectively.</p>
-              <a href="products.html" class="btn btn-outline-success">Explore</a>
+        <div class="col-lg-4 col-md-6">
+          <div class="modern-category-card">
+            <div class="category-image">
+              <img src="assets/images/product4.jpg" alt="Cereals & Grains">
+              <div class="category-overlay">
+                <div class="overlay-content">
+                  <span class="category-badge">High Yield</span>
+                  <h3 class="category-title">Cereals & Grains</h3>
+                  <p class="category-description">Specialized solutions for maximum grain production and quality.</p>
+                  <a href="products.html#cereals" class="btn btn-light btn-hover-success">Explore Products</a>
+                </div>
+              </div>
+            </div>
+            <div class="category-info">
+              <div class="info-content">
+                <span class="category-icon">🌾</span>
+                <h4>Cereals & Grains</h4>
+                <p>16+ Products</p>
+              </div>
+              <div class="hover-indicator"></div>
             </div>
           </div>
         </div>
 
         <!-- Category 6 -->
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100 category-card">
-            <img src="assets/images/product4.jpg" class="card-img-top" alt="Soil Enhancers">
-            <div class="card-body text-center">
-              <h5 class="card-title fw-bold">Soil Enhancers</h5>
-              <p class="card-text">Improve soil fertility for long-term crop health.</p>
-              <a href="products.html" class="btn btn-outline-success">Explore</a>
+        <div class="col-lg-4 col-md-6">
+          <div class="modern-category-card">
+            <div class="category-image">
+              <img src="assets/images/product4.jpg" alt="Soil Enhancers">
+              <div class="category-overlay">
+                <div class="overlay-content">
+                  <span class="category-badge">Premium</span>
+                  <h3 class="category-title">Soil Enhancers</h3>
+                  <p class="category-description">Advanced formulations for optimal soil health and productivity.</p>
+                  <a href="products.html#soil" class="btn btn-light btn-hover-success">Explore Products</a>
+                </div>
+              </div>
+            </div>
+            <div class="category-info">
+              <div class="info-content">
+                <span class="category-icon">🌍</span>
+                <h4>Soil Enhancers</h4>
+                <p>14+ Products</p>
+              </div>
+              <div class="hover-indicator"></div>
             </div>
           </div>
         </div>

@@ -5,11 +5,234 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GreenLife Agro - Home</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <link rel="stylesheet" href="assets/css/style.css">
-   <!-- Js path  -->
+  <style>
+    :root {
+      --agri-primary: #2e7d32;
+      --agri-secondary: #66bb6a;
+      --agri-accent: #ffd54f;
+      --agri-dark: #1b5e20;
+      --agri-light: #e8f5e9;
+      --gradient-primary: linear-gradient(135deg, var(--agri-primary), var(--agri-secondary));
+      --gradient-accent: linear-gradient(135deg, var(--agri-accent), #ffb300);
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: var(--gradient-primary) !important;
+    }
+
+    .navbar.scrolled .nav-link,
+    .navbar.scrolled .navbar-brand {
+      color: white !important;
+    }
+
+    /* Hero Section */
+    .carousel-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3));
+      z-index: 2;
+    }
+
+    /* Modern Cards */
+    .modern-product-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .modern-product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(46, 125, 50, 0.15);
+    }
+
+    .modern-product-card .card-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      padding-top: 75%;
+    }
+
+    .modern-product-card .card-img-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .modern-product-card:hover .card-img-top {
+      transform: scale(1.1);
+    }
+
+    .modern-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 2;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      background: var(--gradient-accent);
+      color: var(--agri-dark);
+    }
+
+    .modern-product-card .card-body {
+      padding: 2rem;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-card:hover h5,
+    .feature-card:hover p {
+      color: white !important;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      background: var(--agri-light);
+      color: var(--agri-primary);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-card:hover .feature-icon {
+      background: var(--agri-light);
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .feature-card:hover .feature-icon i {
+      color: var(--agri-primary) !important;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--gradient-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('assets/images/pattern.svg') center/cover;
+      opacity: 0.1;
+      animation: float 20s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-100%) rotate(360deg); }
+    }
+
+    /* Buttons */
+    .btn-modern {
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-modern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-primary);
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-modern:hover::before {
+      opacity: 1;
+    }
+
+    .btn-modern.btn-light:hover {
+      color: white !important;
+    }
+
+    /* Animations */
+    [data-aos] {
+      pointer-events: none;
+    }
+
+    [data-aos].aos-animate {
+      pointer-events: auto;
+    }
+
+    @media (max-width: 768px) {
+      .modern-product-card .card-body {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+  <!-- Js path  -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="assets/js/main.js"></script>
 </head>
 <body>
@@ -39,7 +262,7 @@
       <div class="carousel-inner w-100 h-100" style="min-height:60vh; height:60vh;">
         <div class="carousel-item active h-100 position-relative">
           <video autoplay muted loop playsinline preload="auto" class="w-100 position-absolute top-0 start-0 object-fit-cover" style="z-index:1; min-height:60vh; height:60vh; object-fit:cover;">
-            <source src="/assets/video/wheat.mp4" type="video/mp4">
+            <source src="/assets/video/seedtimelaps.mp4" type="video/mp4">
           </video>
           <div class="container position-relative d-flex flex-column justify-content-center align-items-center h-100" style="z-index:3;">
             <h1 class="display-1 fw-bold text-white mb-3 text-center" style="text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Grow More. Naturally.</h1>
@@ -49,7 +272,7 @@
         </div>
         <div class="carousel-item h-100 position-relative">
           <video autoplay muted loop playsinline preload="auto" class="w-100 position-absolute top-0 start-0 object-fit-cover" style="z-index:1; min-height:60vh; height:60vh; object-fit:cover;">
-            <source src="/assets/video/seedtimelaps.mp4" type="video/mp4">
+            <source src="/assets/video/wheat.mp4" type="video/mp4">
           </video>
           <div class="container position-relative d-flex flex-column justify-content-center align-items-center h-100" style="z-index:3;">
             <h1 class="display-1 fw-bold text-white mb-3 text-center" style="text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Sustainable Farming</h1>
@@ -80,204 +303,1025 @@
   </section>
 
   <!-- 🌟 Features Section -->
-  <section class="modern-features-section py-5">
+  <section class="py-5 bg-light">
     <div class="container">
-        <div class="row g-4">
-            <!-- Feature 1 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="modern-feature-card">
-                    <div class="modern-icon-wrapper">
-                        <i class="bi bi-leaf-fill"></i>
-                    </div>
-                    <h5 class="modern-feature-title">Organic & Eco Friendly</h5>
-                    <p class="modern-feature-text">Sustainably sourced and environmentally conscious solutions</p>
-                </div>
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge text-white px-3 py-2 mb-3" style="background: var(--gradient-primary)">Why Choose Us</span>
+        <h2 class="display-5 fw-bold text-success mb-3">Features that Set Us Apart</h2>
+        <p class="lead text-muted">Discover the GreenLife advantage in sustainable agriculture</p>
+      </div>
+      <div class="row g-4">
+        <!-- Feature 1 -->
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-leaf-fill"></i>
             </div>
-
-            <!-- Feature 2 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="modern-feature-card">
-                    <div class="modern-icon-wrapper">
-                        <i class="bi bi-flask-fill"></i>
-                    </div>
-                    <h5 class="modern-feature-title">Lab Tested</h5>
-                    <p class="modern-feature-text">Rigorously tested for quality and effectiveness</p>
-                </div>
-            </div>
-
-            <!-- Feature 3 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="modern-feature-card">
-                    <div class="modern-icon-wrapper">
-                        <i class="bi bi-flower2"></i>
-                    </div>
-                    <h5 class="modern-feature-title">Crop Specific</h5>
-                    <p class="modern-feature-text">Tailored solutions for different crop requirements</p>
-                </div>
-            </div>
-
-            <!-- Feature 4 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="modern-feature-card">
-                    <div class="modern-icon-wrapper">
-                        <i class="bi bi-patch-check-fill"></i>
-                    </div>
-                    <h5 class="modern-feature-title">Govt Certified</h5>
-                    <p class="modern-feature-text">Approved and certified by regulatory authorities</p>
-                </div>
-            </div>
+            <h5 class="fw-bold mb-3">Organic & Eco Friendly</h5>
+            <p class="text-muted mb-0">Sustainably sourced and environmentally conscious solutions for better farming</p>
+          </div>
         </div>
+
+        <!-- Feature 2 -->
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-flask-fill"></i>
+            </div>
+            <h5 class="fw-bold mb-3">Lab Tested</h5>
+            <p class="text-muted mb-0">Rigorously tested products ensuring quality and effectiveness</p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-flower2"></i>
+            </div>
+            <h5 class="fw-bold mb-3">Crop Specific</h5>
+            <p class="text-muted mb-0">Tailored solutions optimized for different crop requirements</p>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-patch-check-fill"></i>
+            </div>
+            <h5 class="fw-bold mb-3">Govt Certified</h5>
+            <p class="text-muted mb-0">Approved and certified by regulatory authorities</p>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
-  <!-- 🌾 Featured Products -->
-  <section class="products-section">
+  </section>
+  <!-- Featured Products Section -->
+  <section class="products-showcase py-5">
+    <div class="nature-pattern"></div>
+    <div class="container position-relative">
+      <!-- Section Header -->
+      <div class="section-header text-center mb-5">
+        <span class="section-badge" data-aos="fade-down">Featured Products</span>
+        <h2 class="section-title display-4 fw-bold mb-3" data-aos="fade-up">Our Premium Solutions</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+          Discover our range of innovative agricultural products
+        </p>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="row g-4">
+        <!-- Product Card 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="product-card">
+            <div class="product-image">
+              <img src="assets/images/product1.png" alt="Bio Growth Plus">
+              <div class="product-overlay">
+                <div class="product-actions">
+                  <a href="product-details.html" class="action-button view-details">
+                    <i class="bi bi-eye-fill me-2"></i>
+                    View Details
+                  </a>
+                  <a href="#" class="action-button learn-more">
+                    <i class="bi bi-info-circle-fill me-2"></i>
+                    Learn More
+                  </a>
+                </div>
+              </div>
+              <div class="product-tags">
+                <span class="tag-bestseller">Bestseller</span>
+                <span class="tag-organic">Organic</span>
+              </div>
+            </div>
+            <div class="product-content">
+              <div class="product-header">
+                <div class="product-type">
+                  <i class="bi bi-star-fill"></i>
+                  <span>Premium Series</span>
+                </div>
+                <div class="product-rating">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <span class="rating-number">4.8</span>
+                </div>
+              </div>
+              <h3 class="product-title">Bio Growth Plus</h3>
+              <p class="product-description">Advanced organic fertilizer enhanced with natural growth boosters.</p>
+              <div class="product-features">
+                <span class="feature"><i class="bi bi-check-circle-fill"></i> Lab Tested</span>
+                <span class="feature"><i class="bi bi-check-circle-fill"></i> Eco-Friendly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="product-card">
+            <div class="product-image">
+              <img src="assets/images/product2.png" alt="Crop Shield Pro">
+              <div class="product-overlay">
+                <div class="product-actions">
+                  <a href="product-details.html" class="action-button view-details">
+                    <i class="bi bi-eye-fill me-2"></i>
+                    View Details
+                  </a>
+                  <a href="#" class="action-button learn-more">
+                    <i class="bi bi-info-circle-fill me-2"></i>
+                    Learn More
+                  </a>
+                </div>
+              </div>
+              <div class="product-tags">
+                <span class="tag-new">New</span>
+                <span class="tag-premium">Premium</span>
+              </div>
+            </div>
+            <div class="product-content">
+              <div class="product-header">
+                <div class="product-type">
+                  <i class="bi bi-shield-fill-check"></i>
+                  <span>Protection Series</span>
+                </div>
+                <div class="product-rating">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <span class="rating-number">5.0</span>
+                </div>
+              </div>
+              <h3 class="product-title">Crop Shield Pro</h3>
+              <p class="product-description">Complete protection system for enhanced crop resilience.</p>
+              <div class="product-features">
+                <span class="feature"><i class="bi bi-check-circle-fill"></i> Long Lasting</span>
+                <span class="feature"><i class="bi bi-check-circle-fill"></i> Weather Resistant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="product-card">
+            <div class="product-image">
+              <img src="assets/images/product3.png" alt="Soil Master">
+              <div class="product-overlay">
+                <div class="product-actions">
+                  <a href="product-details.html" class="action-button view-details">
+                    <i class="bi bi-eye-fill me-2"></i>
+                    View Details
+                  </a>
+                  <a href="#" class="action-button learn-more">
+                    <i class="bi bi-info-circle-fill me-2"></i>
+                    Learn More
+                  </a>
+                </div>
+              </div>
+              <div class="product-tags">
+                <span class="tag-special">Special</span>
+              </div>
+            </div>
+            <div class="product-content">
+              <div class="product-header">
+                <div class="product-type">
+                  <i class="bi bi-flower1"></i>
+                  <span>Expert Series</span>
+                </div>
+                <div class="product-rating">
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                  </div>
+                  <span class="rating-number">4.7</span>
+                </div>
+              </div>
+              <h3 class="product-title">Soil Master</h3>
+              <p class="product-description">Professional-grade soil enhancement formula.</p>
+              <div class="product-features">
+                <span class="feature"><i class="bi bi-check-circle-fill"></i> Fast Acting</span>
+                <span class="feature"><i class="bi bi-check-circle-fill"></i> High Yield</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- View All Products Button -->
+      <div class="text-center mt-5">
+        <a href="products.html" class="explore-all-btn" data-aos="fade-up" data-aos-delay="300">
+          Explore All Products
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Featured Products Section Styles */
+    .products-showcase {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nature-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        linear-gradient(120deg, rgba(76, 175, 80, 0.05) 0%, rgba(27, 94, 32, 0.05) 100%),
+        radial-gradient(circle at 20% 30%, rgba(76, 175, 80, 0.08) 0%, transparent 70%),
+        radial-gradient(circle at 80% 70%, rgba(27, 94, 32, 0.08) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234caf50' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+    }
+
+    .section-title {
+      color: #1b5e20;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Product Card Styles */
+    .product-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+      position: relative;
+      padding-top: 75%;
+      overflow: hidden;
+      background: #f8f9fa;
+    }
+
+    .product-image img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .product-card:hover .product-overlay {
+      opacity: 1;
+    }
+
+    .product-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .product-card:hover .product-actions {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .action-button {
+      background: white;
+      color: #1b5e20;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .action-button:hover {
+      background: #4CAF50;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .action-button.learn-more {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .product-tags {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 2;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .product-tags span {
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .tag-bestseller { background: linear-gradient(135deg, #FF9800, #F57C00); }
+    .tag-new { background: linear-gradient(135deg, #2196F3, #1976D2); }
+    .tag-premium { background: linear-gradient(135deg, #9C27B0, #7B1FA2); }
+    .tag-organic { background: linear-gradient(135deg, #4CAF50, #388E3C); }
+    .tag-special { background: linear-gradient(135deg, #F44336, #D32F2F); }
+
+    .product-content {
+      padding: 1.5rem;
+    }
+
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .product-type {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #4CAF50;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .stars {
+      color: #FFC107;
+      display: flex;
+      gap: 2px;
+    }
+
+    .rating-number {
+      color: #666;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1b5e20;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-description {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .product-features {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #4CAF50;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .explore-all-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, #4CAF50, #2E7D32);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+    }
+
+    .explore-all-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(76, 175, 80, 0.4);
+      color: white;
+    }
+
+    .explore-all-btn i {
+      transition: transform 0.3s ease;
+    }
+
+    .explore-all-btn:hover i {
+      transform: translateX(5px);
+    }
+
+    @media (max-width: 768px) {
+      .product-card {
+        margin-bottom: 2rem;
+      }
+
+      .product-features {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+
+  <style>
+    .featured-products-section {
+      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+      position: relative;
+    }
+
+    .featured-products-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
+      z-index: 0;
+    }
+
+    .modern-product-card {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    .modern-product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .modern-product-card a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .card-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      padding-top: 66.67%;
+      transform: translateZ(0);
+    }
+
+    .card-img-wrapper img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      backface-visibility: hidden;
+    }
+
+    .modern-product-card:hover .card-img-wrapper img {
+      transform: scale(1.1) translateZ(0);
+    }
+
+    .card-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      will-change: opacity, visibility;
+    }
+
+    .modern-product-card:hover .card-overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .card-overlay .btn {
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s;
+    }
+
+    .modern-product-card:hover .card-overlay .btn {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .overlay-content {
+      text-align: center;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+    }
+
+    .modern-product-card:hover .overlay-content {
+      transform: translateY(0);
+    }
+
+    .feature-pill {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border-radius: 20px;
+      margin: 5px;
+      font-size: 0.875rem;
+    }
+
+    .modern-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 15px;
+      background: var(--gradient-primary);
+      color: white;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .feature-icon {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      color: white;
+      border-radius: 12px;
+      font-size: 1.25rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .product-category {
+      color: #2E7D32;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      color: #1b5e20;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .card-text {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .product-rating {
+      color: #ffc107;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .product-rating span {
+      color: #666;
+      margin-left: 8px;
+      font-weight: 500;
+    }
+
+    .product-rating i {
+      filter: drop-shadow(0 2px 4px rgba(255, 193, 7, 0.2));
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      color: white !important;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none !important;
+      display: inline-block;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .btn-success:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(46, 125, 50, 0.25);
+      color: white !important;
+    }
+
+    .btn-success:active {
+      transform: translateY(1px);
+      box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+    }
+
+    .btn-success::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #66BB6A 0%, #43A047 100%);
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-success:hover::after {
+      opacity: 1;
+    }
+
+    .btn-glow {
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      color: white;
+    }
+
+    .btn-glow::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255,255,255,0.1);
+      transform: rotate(45deg);
+      transition: all 0.3s ease;
+    }
+
+    .btn-glow:hover::after {
+      transform: rotate(45deg) translate(50%, 50%);
+    }
+
+    @media (max-width: 768px) {
+      .modern-product-card {
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+
+  <!-- 👨‍🌾 Testimonials Section -->
+  <section class="testimonials-section py-5 position-relative overflow-hidden">
     <div class="container">
-        <!-- Section Header -->
-        <div class="section-header">
-            <span class="section-badge">Our Premium Range</span>
-            <h2 class="section-title">Featured Products</h2>
-            <p class="section-subtitle">Boost your harvest with our scientifically-formulated agricultural solutions</p>
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge text-white px-3 py-2 mb-3" style="background: var(--gradient-primary)">Testimonials</span>
+        <h2 class="display-5 fw-bold text-success mb-3">What Farmers Say</h2>
+        <p class="lead text-muted">Real experiences from our satisfied customers</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Testimonial 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <i class="bi bi-quote"></i>
+              </div>
+              <p class="testimonial-text">"GreenLife's organic fertilizers have transformed my farm. The yield has increased by 40%, and the soil health has never been better. Truly a game-changer!"</p>
+              <div class="testimonial-rating text-warning mb-3">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Smith" class="author-image">
+              <div class="author-info">
+                <h5 class="author-name mb-1">John </h5>
+                <p class="author-location mb-0"><i class="bi bi-geo-alt-fill"></i> Sangli,Maharashtra</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Products Grid -->
-        <div class="products-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <span class="product-badge">Bestseller</span>
-                    <img src="assets/images/product1.png" alt="Organic Fertilizer" class="product-image">
-                </div>
-                <div class="product-content">
-                    <div class="product-category">🌿 Organic Range</div>
-                    <h3 class="product-title">Organic Bio-Fertilizer</h3>
-                    <p class="product-description">Natural nutrient boost for healthier crops with enhanced soil vitality and sustainable growth.</p>
-                    <div class="product-features">
-                        <span class="feature-tag">✓ Eco-Friendly</span>
-                        <span class="feature-tag">✓ Lab Tested</span>
-                    </div>
-                    <div class="product-footer">
-                        <div class="product-rating">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">☆</span>
-                            <span class="rating-text">4.5</span>
-                        </div>
-                        <a href="#" class="btn-product">View Details →</a>
-                    </div>
-                </div>
+        <!-- Testimonial 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <i class="bi bi-quote"></i>
+              </div>
+              <p class="testimonial-text">"The technical support from the GreenLife team is exceptional. They helped me choose the right products for my crops and the results are amazing!"</p>
+              <div class="testimonial-rating text-warning mb-3">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+              </div>
             </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <span class="product-badge badge-new">New Launch</span>
-                    <img src="assets/images/product2.png" alt="Nitrogen Boost" class="product-image">
-                </div>
-                <div class="product-content">
-                    <div class="product-category">⚡ Performance Series</div>
-                    <h3 class="product-title">Nitrogen Boost Pro</h3>
-                    <p class="product-description">High-efficiency nitrogen formula for rapid growth and enhanced crop productivity.</p>
-                    <div class="product-features">
-                        <span class="feature-tag">✓ Fast Acting</span>
-                        <span class="feature-tag">✓ Certified</span>
-                    </div>
-                    <div class="product-footer">
-                        <div class="product-rating">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="rating-text">5.0</span>
-                        </div>
-                        <a href="#" class="btn-product">View Details →</a>
-                    </div>
-                </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="author-image">
+              <div class="author-info">
+                <h5 class="author-name mb-1">Sarah</h5>
+                <p class="author-location mb-0"><i class="bi bi-geo-alt-fill"></i> Sangli,Maharashtra</p>
+              </div>
             </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <span class="product-badge badge-premium">Premium</span>
-                    <img src="assets/images/product3.png" alt="Crop Shield" class="product-image">
-                </div>
-                <div class="product-content">
-                    <div class="product-category">🛡️ Protection Series</div>
-                    <h3 class="product-title">Crop Shield Advanced</h3>
-                    <p class="product-description">Complete crop protection with eco-friendly pest control for sustainable farming.</p>
-                    <div class="product-features">
-                        <span class="feature-tag">✓ Long Lasting</span>
-                        <span class="feature-tag">✓ Safe</span>
-                    </div>
-                    <div class="product-footer">
-                        <div class="product-rating">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">☆</span>
-                            <span class="rating-text">4.0</span>
-                        </div>
-                        <a href="#" class="btn-product">View Details →</a>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
 
-        <!-- View All Button -->
-        <div class="view-all-wrapper">
-            <a href="#" class="btn-view-all">View All Products</a>
+        <!-- Testimonial 3 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="quote-icon">
+                <i class="bi bi-quote"></i>
+              </div>
+              <p class="testimonial-text">"Switching to GreenLife's eco-friendly products was the best decision. My crops are healthier, and I'm contributing to sustainable farming practices."</p>
+              <div class="testimonial-rating text-warning mb-3">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+            </div>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Michael Chen" class="author-image">
+              <div class="author-info">
+                <h5 class="author-name mb-1">Michael</h5>
+                <p class="author-location mb-0"><i class="bi bi-geo-alt-fill"></i> Sangli,Maharashtra</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Background Elements -->
+      <div class="position-absolute" style="top: 10%; right: 5%; z-index: 0; opacity: 0.1;">
+        <i class="bi bi-flower1" style="font-size: 8rem;"></i>
+      </div>
+      <div class="position-absolute" style="bottom: 10%; left: 5%; z-index: 0; opacity: 0.1;">
+        <i class="bi bi-flower2" style="font-size: 6rem;"></i>
+      </div>
     </div>
-</section>
+  </section>
 
   <!-- 🧑‍🌾 About / CTA -->
-  <section class="bg-success text-white text-center py-5">
+  <section class="cta-section py-5">
     <div class="container">
-      <h2>Trusted by 10,000+ Farmers</h2>
-      <p>GreenLife Agro provides high-quality fertilizers to farmers across the country.</p>
-      <a href="about.html" class="btn btn-light btn-lg mt-2">Learn More</a>
+      <div class="row align-items-center justify-content-between py-4">
+        <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0" data-aos="fade-right">
+          <span class="badge text-success px-3 py-2 mb-3 bg-white">Our Impact</span>
+          <h2 class="display-4 fw-bold text-white mb-3">Trusted by 10,000+ Farmers</h2>
+          <p class="lead text-white-50 mb-4">Join the growing community of farmers who trust GreenLife Agro for sustainable agricultural solutions.</p>
+          <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+            <a href="about.html" class="btn btn-modern btn-light">
+              <i class="bi bi-arrow-right-circle me-2"></i>Learn More
+            </a>
+            <a href="contact.html" class="btn btn-modern btn-outline-light">Contact Us</a>
+          </div>
+        </div>
+        <div class="col-lg-5" data-aos="fade-left">
+          <div class="row g-4">
+            <div class="col-6">
+              <div class="text-center bg-white bg-opacity-10 rounded-4 p-4">
+                <h3 class="display-4 fw-bold text-white mb-2">25+</h3>
+                <p class="text-white-50 mb-0">Years Experience</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="text-center bg-white bg-opacity-10 rounded-4 p-4">
+                <h3 class="display-4 fw-bold text-white mb-2">10K+</h3>
+                <p class="text-white-50 mb-0">Happy Farmers</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="text-center bg-white bg-opacity-10 rounded-4 p-4">
+                <h3 class="display-4 fw-bold text-white mb-2">50+</h3>
+                <p class="text-white-50 mb-0">Products</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="text-center bg-white bg-opacity-10 rounded-4 p-4">
+                <h3 class="display-4 fw-bold text-white mb-2">100%</h3>
+                <p class="text-white-50 mb-0">Satisfaction</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
 
- <!-- 🆕 New Arrivals Section -->
-  <section class="py-5 bg-light">
+  <!-- 🆕 New Arrivals Section -->
+  <section class="py-5">
     <div class="container">
-      <h2 class="text-center mb-4">New Arrivals</h2>
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge text-white px-3 py-2 mb-3" style="background: var(--gradient-primary)">Latest Products</span>
+        <h2 class="display-5 fw-bold text-success mb-3">New Arrivals</h2>
+        <p class="lead text-muted">Discover our latest innovations in agricultural solutions</p>
+      </div>
       <div class="row g-4 justify-content-center">
-        <div class="col-md-3">
-          <div class="card h-100 shadow-sm border-success">
-            <img src="assets/images/product1.png" class="card-img-top" alt="New Product 1">
+        <!-- Product 1 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="modern-product-card h-100">
+            <div class="card-img-wrapper">
+              <img src="assets/images/product1.png" class="card-img-top" alt="Eco Power Plus">
+              <span class="modern-badge">New</span>
+            </div>
             <div class="card-body">
-              <h5 class="card-title text-success">Eco Power Plus</h5>
-              <p class="card-text">Advanced organic fertilizer for all crops. Boosts growth and soil health.</p>
-              <span class="badge bg-success mb-2">New</span>
-              <a href="product-details.html" class="btn btn-outline-success btn-sm">View Details</a>
+              <div class="d-flex align-items-center mb-3">
+                <div class="feature-icon me-3" style="width: 40px; height: 40px; font-size: 1.2rem; margin-bottom: 0">
+                  <i class="bi bi-flower1"></i>
+                </div>
+                <h5 class="card-title fw-bold mb-0">Eco Power Plus</h5>
+              </div>
+              <p class="card-text text-muted mb-4">Advanced organic fertilizer for all crops. Boosts growth and soil health.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="text-success">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                  <span class="ms-2 text-muted">4.5</span>
+                </div>
+                <a href="product-details.html" class="btn btn-modern btn-outline-success">View Details</a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-3">
-          <div class="card h-100 shadow-sm border-success">
-            <img src="assets/images/product2.png" class="card-img-top" alt="New Product 2">
+        <!-- Product 2 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="modern-product-card h-100">
+            <div class="card-img-wrapper">
+              <img src="assets/images/product2.png" class="card-img-top" alt="Nitro Green">
+              <span class="modern-badge">New</span>
+            </div>
             <div class="card-body">
-              <h5 class="card-title text-success">Nitro Green</h5>
-              <p class="card-text">High-efficiency nitrogen fertilizer for rapid, healthy plant growth.</p>
-              <span class="badge bg-success mb-2">New</span>
-              <a href="product-details.html" class="btn btn-outline-success btn-sm">View Details</a>
+              <div class="d-flex align-items-center mb-3">
+                <div class="feature-icon me-3" style="width: 40px; height: 40px; font-size: 1.2rem; margin-bottom: 0">
+                  <i class="bi bi-droplet-fill"></i>
+                </div>
+                <h5 class="card-title fw-bold mb-0">Nitro Green</h5>
+              </div>
+              <p class="card-text text-muted mb-4">High-efficiency nitrogen fertilizer for rapid, healthy plant growth.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="text-success">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <span class="ms-2 text-muted">5.0</span>
+                </div>
+                <a href="product-details.html" class="btn btn-modern btn-outline-success">View Details</a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-3">
-          <div class="card h-100 shadow-sm border-success">
-            <img src="assets/images/product3.png" class="card-img-top" alt="New Product 3">
+        <!-- Product 3 -->
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="modern-product-card h-100">
+            <div class="card-img-wrapper">
+              <img src="assets/images/product3.png" class="card-img-top" alt="Root Guard">
+              <span class="modern-badge">New</span>
+            </div>
             <div class="card-body">
-              <h5 class="card-title text-success">Root Guard</h5>
-              <p class="card-text">Protects roots from disease and improves nutrient absorption.</p>
-              <span class="badge bg-success mb-2">New</span>
-              <a href="product-details.html" class="btn btn-outline-success btn-sm">View Details</a>
+              <div class="d-flex align-items-center mb-3">
+                <div class="feature-icon me-3" style="width: 40px; height: 40px; font-size: 1.2rem; margin-bottom: 0">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <h5 class="card-title fw-bold mb-0">Root Guard</h5>
+              </div>
+              <p class="card-text text-muted mb-4">Protects roots from disease and improves nutrient absorption.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="text-success">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star"></i>
+                  <span class="ms-2 text-muted">4.0</span>
+                </div>
+                <a href="product-details.html" class="btn btn-modern btn-outline-success">View Details</a>
+              </div>
             </div>
           </div>
         </div>
@@ -287,57 +1331,742 @@
 
 
   <!-- 📞 Footer -->
-  <footer class="bg-dark text-white py-4">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-12 col-md-8 text-center text-md-center mx-auto">
-          <p class="mb-2 mb-md-0">&copy; 2025 GreenLife Agro. All Rights Reserved.</p>
+  <footer class="footer-section">
+    <div class="footer-main py-5">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Company Info -->
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-widget">
+              <h4 class="footer-brand mb-4">
+                <i class="bi bi-flower1 me-2"></i>GreenLife Agro
+              </h4>
+              <p class="footer-about mb-4">Empowering farmers with sustainable agricultural solutions for a greener tomorrow. Your trusted partner in eco-friendly farming practices.</p>
+              <div class="footer-social">
+                <a href="#" class="social-link" aria-label="Facebook">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                  <i class="bi bi-instagram"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                  <i class="bi bi-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6">
+            <div class="footer-widget">
+              <h5 class="footer-heading">Quick Links</h5>
+              <ul class="footer-links">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Products -->
+          <div class="col-lg-2 col-md-6">
+            <div class="footer-widget">
+              <h5 class="footer-heading">Products</h5>
+              <ul class="footer-links">
+                <li><a href="#">Organic Fertilizers</a></li>
+                <li><a href="#">Bio Pesticides</a></li>
+                <li><a href="#">Growth Enhancers</a></li>
+                <li><a href="#">Soil Supplements</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-widget">
+              <h5 class="footer-heading">Contact Info</h5>
+              <div class="footer-contact">
+                <p class="contact-item">
+                  <i class="bi bi-geo-alt-fill me-2"></i>
+                  Shinde Pride,Laxmi Mandir Road,Near Chinmay Park<br>
+                  Sangli,416436
+                </p>
+                <p class="contact-item">
+                  <i class="bi bi-telephone-fill me-2"></i>
+                  <a href="tel:+1234567890">+91 7498121625</a>
+                </p>
+                <p class="contact-item">
+                  <i class="bi bi-envelope-fill me-2"></i>
+                  <a href="mailto:info@greenlifeagro.com">info@greenlifeagro.com</a>
+                </p>
+                <p class="contact-item">
+                  <i class="bi bi-clock-fill me-2"></i>
+                  Mon - Fri: 8:00 AM - 6:00 PM
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-12 col-md-4 d-flex justify-content-md-end justify-content-center mt-2 mt-md-0">
-          <a href="#" class="text-white me-3" aria-label="Facebook"><i class="bi bi-facebook me-1"></i>Facebook</a>
-          <a href="#" class="text-white me-3" aria-label="Instagram"><i class="bi bi-instagram me-1"></i>Instagram</a>
-          <a href="#" class="text-white" aria-label="LinkedIn"><i class="bi bi-linkedin me-1"></i>LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom py-3">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">&copy; 2025 GreenLife Agro. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+            <ul class="footer-bottom-links">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Sitemap</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </footer>
 
+  <style>
+    /* Footer Styles */
+    .footer-section {
+      background: linear-gradient(135deg, #1b5e20 0%, #0d2d0f 100%);
+      color: #ffffff;
+      position: relative;
+      box-shadow: inset 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .footer-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, 
+        rgba(46, 125, 50, 0.1),
+        rgba(27, 94, 32, 0.2)
+      );
+      pointer-events: none;
+    }
+
+    .footer-brand {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .footer-about {
+      color: #ffffff;
+      line-height: 1.8;
+      font-size: 0.95rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .footer-heading {
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.75rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--agri-accent);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .footer-links a:hover {
+      color: var(--agri-accent);
+      transform: translateX(5px);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .footer-links a::before {
+      content: '→';
+      opacity: 0;
+      margin-right: 8px;
+      transform: translateX(-5px);
+      transition: all 0.3s ease;
+      color: var(--agri-accent);
+    }
+
+    .footer-links a:hover::before {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-link:hover {
+      background: var(--agri-accent);
+      color: var(--agri-primary);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .footer-contact .contact-item {
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      color: #ffffff;
+    }
+
+    .footer-contact .contact-item i {
+      color: var(--agri-accent);
+      font-size: 1.1rem;
+      margin-top: 0.2rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+
+    .footer-contact a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .footer-contact a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--agri-accent);
+      transition: width 0.3s ease;
+    }
+
+    .footer-contact a:hover {
+      color: var(--agri-accent);
+    }
+
+    .footer-contact a:hover::after {
+      width: 100%;
+    }
+
+    .footer-bottom {
+      background: rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-bottom-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .footer-bottom-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+      opacity: 0.9;
+      position: relative;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--agri-accent);
+      opacity: 1;
+    }
+
+    .footer-bottom-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--agri-accent);
+      transition: width 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .footer-section {
+        text-align: center;
+      }
+
+      .footer-widget {
+        margin-bottom: 3rem;
+      }
+
+      .footer-heading {
+        font-size: 1.25rem;
+      }
+
+      .footer-heading::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .footer-social {
+        justify-content: center;
+      }
+
+      .footer-contact .contact-item {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-contact .contact-item i {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-bottom {
+        padding: 1.5rem 0;
+      }
+
+      .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem 2rem;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .footer-section {
+        background-attachment: fixed;
+      }
+    }
+  </style>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Initialize AOS animations
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 <style>
+  /* Product Cards */
+  .modern-product-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    height: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    transform-origin: center;
+    animation: cardAppear 0.6s backwards;
+    position: relative;
+  }
+
+  .modern-product-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 0%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+    z-index: 2;
+  }
+
+  .modern-product-card:hover::before {
+    transform: translateX(100%);
+  }
+
+  @keyframes cardAppear {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .modern-product-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .modern-product-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .modern-product-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .modern-product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 32px rgba(46, 125, 50, 0.15);
+  }
+
+  .modern-product-card .card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-top: 66%; /* Adjusted for better proportion */
+  }
+
+  .modern-product-card .card-img-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .modern-product-card:hover .card-img-top {
+    transform: scale(1.08) rotate(-1deg);
+  }
+
+  .modern-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    background: var(--gradient-accent);
+    color: var(--agri-dark);
+  }
+
+  .badge-new {
+    background: var(--gradient-primary);
+    color: white;
+  }
+
+  .badge-premium {
+    background: linear-gradient(135deg, #ffd700, #ffa000);
+    color: var(--agri-dark);
+  }
+
+  .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.2), transparent);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+  }
+
+  .modern-product-card:hover .card-overlay {
+    opacity: 1;
+  }
+
+  .overlay-content {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    width: 100%;
+  }
+
+  .modern-product-card:hover .overlay-content {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .feature-pill {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.95);
+    color: var(--agri-primary);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0.25rem;
+    transition: all 0.3s ease;
+    animation: pillAppear 0.4s backwards;
+  }
+
+  @keyframes pillAppear {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .feature-pill:hover {
+    background: var(--agri-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+  }
+
+  .modern-product-card .card-body {
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .modern-product-card:hover .card-body {
+    transform: translateY(-4px);
+  }
+
+  .modern-product-card .feature-icon {
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .modern-product-card:hover .feature-icon {
+    transform: scale(1.1) rotate(8deg);
+    background: var(--agri-primary);
+    color: white;
+  }
+
+  .modern-product-card .btn-modern {
+    transform: translateY(0);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .modern-product-card:hover .btn-modern {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(46, 125, 50, 0.2);
+  }
+
+  /* Testimonial Styles */
+  .testimonials-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e9 100%);
+  }
+
+  .testimonial-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    height: 100%;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    animation: testimonialAppear 0.8s backwards;
+  }
+
+  @keyframes testimonialAppear {
+    0% {
+      opacity: 0;
+      transform: translateY(40px) scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 32px rgba(46, 125, 50, 0.15);
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    transform: rotate(180deg);
+    animation: quoteAppear 0.6s backwards;
+  }
+
+  @keyframes quoteAppear {
+    0% {
+      opacity: 0;
+      transform: rotate(180deg) scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(180deg) scale(1);
+    }
+  }
+
+  .testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    border: 3px solid var(--agri-light);
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover .author-image {
+    border-color: var(--agri-primary);
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .author-name {
+    color: var(--agri-primary);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .author-location {
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  .author-location i {
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+    color: var(--agri-secondary);
+  }
+
+  .testimonial-rating i {
+    color: var(--agri-accent);
+    margin-right: 0.2rem;
+    animation: starShine 1s backwards;
+  }
+
+  @keyframes starShine {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .testimonial-card:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .testimonial-card:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .testimonial-card:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .testimonial-card .quote-icon i {
+    animation: quoteFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes quoteFloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  /* Other Styles */
   .text-agri-green { color: #388e3c !important; }
   .text-agri-brown { color: #795548 !important; }
-  .btn-agri-green {
-    background: linear-gradient(90deg, #8bc34a 60%, #ffd54f 100%);
-    color: #fff !important;
-    border: none;
-    font-weight: 600;
-    border-radius: 2rem;
-    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-  }
-  .btn-agri-green:hover {
-    background: linear-gradient(90deg, #ffd54f 60%, #8bc34a 100%);
-    color: #388e3c !important;
-    box-shadow: 0 4px 24px 0 rgba(139,195,74,0.15);
-  }
-  .agri-card {
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .agri-card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 8px 32px 0 rgba(139,195,74,0.18);
-    z-index: 2;
+  .feature-card {
+    cursor: pointer;
+    border: none !important;
+    box-shadow: 0 2px 16px 0 rgba(139,195,74,0.10);
   }
   .feature-card i {
     transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55);
   }
   .feature-card:hover i {
     transform: scale(1.2) rotate(-8deg);
-  }
-  .feature-card {
-    cursor: pointer;
-    border: none !important;
-    box-shadow: 0 2px 16px 0 rgba(139,195,74,0.10);
   }
   /* Animate.css CDN for quick animation classes */
   @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
