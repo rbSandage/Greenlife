@@ -140,17 +140,6 @@ body {
 }
 
 /* =========================
-   🌿 Footer
-========================= */
-footer {
-  background: linear-gradient(90deg, #1b5e20, #2e7d32);
-}
-
-footer a:hover {
-  color: #a5d6a7;
-}
-
-/* =========================
    🌿 Animations on Scroll
 ========================= */
 section, .card, .features-section .col-md-3 {
